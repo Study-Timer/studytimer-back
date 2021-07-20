@@ -1,11 +1,11 @@
-const { DB_USERNAME, DB_PASSWORD, DB_NAME } =  process.env
+// const { DB_USERNAME, DB_PASSWORD, DB_NAME } =  process.env
 
 module.exports = { 
     dialect: 'postgres',
     host: 'localhost',
-    username: DB_USERNAME,
-    password: DB_PASSWORD,
-    database: DB_NAME,
+    username: 'studytimer',
+    password: 'studytimer',
+    database: 'studytimer-db',
     define: {
         timestamps: true,
         underscored: true
