@@ -1,7 +1,4 @@
 module.exports = {
-    async index(req, res) {
-
-    },
 
     async indexOne(req, res) {
 
@@ -11,7 +8,7 @@ module.exports = {
 
     }, 
 
-    async destroy(req, res) {
-
+    async updateUser(req, res) {
+        
     }
 }
