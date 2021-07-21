@@ -7,6 +7,8 @@ const routes = express.Router()
 
 routes.get('/', UserController.ping)
 
+routes.post('/users', UserController.store)
+
 
 
 module.exports = routes
