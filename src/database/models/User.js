@@ -11,6 +11,10 @@ class User extends Model {
         }, { sequelize: connection })
 
     }
+
+    static associate(models) {
+        this.hasMany(models.Subject, { foreignKey: 'user_id', as: 'subjects' })
+    }
 }
 
 module.exports = User
