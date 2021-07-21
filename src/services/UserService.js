@@ -14,6 +14,9 @@ const createUser = async (username, email, password) => {
 
     const createdUser = await User.create(data)
 
+    delete createdUser.dataValues.password
+
+
     return createdUser
 
 }
@@ -27,3 +30,5 @@ module.exports = {
     createUser, 
     updateUser
 }
+
+
