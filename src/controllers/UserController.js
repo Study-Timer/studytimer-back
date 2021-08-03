@@ -1,3 +1,4 @@
+
 const UserService = require('../services/UserService')
 
 
@@ -7,7 +8,20 @@ module.exports = {
         return res.json({ping: 'pong'})
     },
 
+    
     async indexOne(req, res) {
+        try {
+            const { user_id } = req.params;
+            
+            const user = await UserService.getUser(user_id)
+
+            return res.status(200).json(user)
+         
+        } catch (error) {
+            return res.status(500).json(`Internal Server Error: ${error}`)
+        }
+
+        
 
     }, 
 
