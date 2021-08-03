@@ -3,7 +3,11 @@ const bcrypt = require('bcrypt');
 
 
 
-const getUser = async (id) => {}
+const getUser = async (id) => {
+    const userById = await User.findByPk(id)
+    
+    return userById
+}
 
 const createUser = async (username, email, password) => {
     const data = {username, email}
