@@ -7,6 +7,7 @@ const routes = express.Router()
 
 routes.get('/', UserController.ping)
 
+routes.post('/login', UserController.login)
 routes.post('/users', UserController.store)
 
 routes.get('/users/:user_id', UserController.indexOne)
