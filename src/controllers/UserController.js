@@ -1,5 +1,7 @@
 
+const jwt = require('jsonwebtoken');
 const UserService = require('../services/UserService')
+const AuthService = require('../services/AuthService')
 
 
 module.exports = {
@@ -54,6 +56,44 @@ module.exports = {
     }, 
 
     async updateUser(req, res) {
+
+    },
+
+    async login(req, res) {
+        try {
+            const { email, password } = req.body
+
+            if(!email){
+                return res.status(400).json(`Bad Request: email is required`)
+            }
+
+            if(!password){
+                return res.status(400).json(`Bad Request: password is required`)
+            }
+
+            const user = await UserService.findByEmail(email)
+
+            if(!user){
+                return res.status(400).json(`Bad Request: user not exists`)
+            }
+
+            const matchPassword = AuthService.matchPassword(password, user.password)
+
+            if(!matchPassword){
+                return res.status(400).json(`Bad Request: Password Incorrect`)
+            }
+
+            const token = AuthService.generateTokenJwt(user.id)
+
+            res.header('auth-token', token).json({
+                id: user.id,
+                token
+            })
+
+        } catch (error) {
+            return res.status(500).json(`Internal Server Error: ${error}`)
+            
+        }
 
     }
 }
