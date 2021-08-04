@@ -45,7 +45,7 @@ const updateUser = async (data, id) => {
 
     user.save()
 
-    return 'deu certo'
+    return 'Senha atualizada com sucesso'
 
 } 
 

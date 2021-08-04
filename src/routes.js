@@ -9,7 +9,7 @@ routes.get('/', UserController.ping)
 
 routes.post('/login', UserController.login)
 routes.post('/users', UserController.store)
-routes.patch('/users/:user_id', UserController.updateUser)
+routes.post('/users/:user_id', UserController.updateUser)
 routes.get('/users/:user_id', UserController.verifyJWT ,UserController.indexOne)
 
 
