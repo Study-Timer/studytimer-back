@@ -57,6 +57,23 @@ module.exports = {
 
     async updateUser(req, res) {
 
+        try {
+            const data = req.body
+            const {user_id} = req.params
+
+            if(!data){
+                return res.status(400).json(`Bad Request: data is required`)
+            }
+
+            const user = await UserService.updateUser(data, user_id)
+
+            return res.status(200).json(user)
+
+        } catch (error) {
+            return res.status(500).json(`Internal Server Error: ${error}`)
+            
+        }
+
     },
 
     async login(req, res) {
