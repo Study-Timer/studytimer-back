@@ -27,12 +27,19 @@ const createUser = async (username, email, password) => {
 
 const updateUser = async (data) => {} 
 
+const findByEmail = async (email) => {
+    const user = await User.findOne({ email })
+
+    return user
+}
+
 
 
 module.exports = {
     getUser,
     createUser, 
-    updateUser
+    updateUser,
+    findByEmail
 }
 
 
