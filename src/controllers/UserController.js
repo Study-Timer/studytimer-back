@@ -95,5 +95,25 @@ module.exports = {
             
         }
 
+    },
+
+    // verificar falha de segurança que apenas um unico cara logado consegue pegar informações de todos os outros
+    async verifyJWT(req, res, next) {
+        const token = req.headers['auth-token'] || req.headers['authorization']
+
+        if(!token){
+            return res.status(401).json(`No token provided.`)
+        }
+
+        try {
+            const verified = jwt.verify(token, `${process.env.SECRET_KEY}`)
+            req.user = verified
+
+            next()
+
+        } catch (error) {
+            return res.status(500).json(`Internal Server Error: ${error}`)
+            
+        }
     }
 }
