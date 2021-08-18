@@ -10,5 +10,13 @@ const createSubject = async (user_id, name, description, difficulty) => {
 
 }
 
+const getSubjects = async (user_id) => {
 
-module.exports = {createSubject}
+    const subjects = await Subject.findAll(user_id)
+
+    return subjects
+
+}
+
+
+module.exports = {createSubject, getSubjects}

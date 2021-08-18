@@ -14,6 +14,7 @@ routes.post('/users/:user_id', UserController.verifyJWT, UserController.updateUs
 routes.get('/users/:user_id', UserController.verifyJWT ,UserController.indexOne)
 
 routes.post('/:user_id/subject', UserController.verifyJWT, SubjectController.store)
+routes.get('/:user_id/subjects', UserController.verifyJWT, SubjectController.getAll)
 
 
 module.exports = routes

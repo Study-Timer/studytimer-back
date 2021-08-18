@@ -42,6 +42,28 @@ module.exports  = {
             
         }
 
+    },
+
+    async getAll(req, res) {
+        try {
+        
+            const { user_id } = req.params
+
+            const user = await UserService.getUser(user_id)
+
+            if(!user) {
+                return res.status(404).json(`User not exists`)
+            }
+
+            const subjects = await SubjectService.getAll(user_id)
+
+            return res.status(200).json(subjects)
+
+            
+        } catch (error) {
+            return res.status(500).json(`Internal Server Error: ${error}`)
+        }
+
     }
 
 
