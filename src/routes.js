@@ -1,6 +1,7 @@
 const express = require('express')
 
 const UserController = require('./controllers/UserController')
+const SubjectController = require('./controllers/SubjectController')
 
 const routes = express.Router()
 
@@ -12,6 +13,7 @@ routes.post('/users', UserController.store)
 routes.post('/users/:user_id', UserController.verifyJWT, UserController.updateUser)
 routes.get('/users/:user_id', UserController.verifyJWT ,UserController.indexOne)
 
+routes.post('/:user_id/subject', SubjectController.store)
 
 
 module.exports = routes
