@@ -12,7 +12,8 @@ const createSubject = async (user_id, name, description, difficulty) => {
 
 const getSubjects = async (user_id) => {
 
-    const subjects = await Subject.findAll(user_id)
+    const subjects = await Subject.findAll({where: {user_id}})
+    
 
     return subjects
 

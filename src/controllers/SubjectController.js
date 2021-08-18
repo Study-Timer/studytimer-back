@@ -55,7 +55,7 @@ module.exports  = {
                 return res.status(404).json(`User not exists`)
             }
 
-            const subjects = await SubjectService.getAll(user_id)
+            const subjects = await SubjectService.getSubjects(user_id)
 
             return res.status(200).json(subjects)
 
