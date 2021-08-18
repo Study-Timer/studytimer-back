@@ -64,7 +64,43 @@ module.exports  = {
             return res.status(500).json(`Internal Server Error: ${error}`)
         }
 
+    },
+
+    async updateSubject(req, res) {
+
+        try {
+            const { user_id } = req.params
+            const { name, description} = req.body
+
+            const user = await UserService.getUser(user_id)
+
+
+
+            if(!user) {
+                return res.status(404).json(`User not exists`)
+            }
+
+            if(!name){
+                return res.status(400).json(`Bad Request: name is required`)
+            }
+
+            if(!description){
+                return res.status(400).json(`Bad Request: description is required`)
+            }
+
+            const updatedSubject = await SubjectService.updateSubject(user_id,name,description)
+
+            return res.status(200).json(updatedSubject)
+
+        
+        } catch (error) {
+            return res.status(500).json(`Internal Server Error: ${error}`)
+        }
+
     }
+
+    
+    
 
 
 }
