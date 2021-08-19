@@ -27,7 +27,14 @@ const updateSubject = async (id, user_id, name, description) => {
     return subject
 }
 
+const deleteSubject = async (id, user_id) => {
+
+    const subject = await Subject.destroy({where: {    [Op.and]: [{id}, {user_id}] }})
+
+    return subject
+}
 
 
 
-module.exports = {createSubject, getSubjects, updateSubject}
+
+module.exports = {createSubject, getSubjects, updateSubject, deleteSubject}

@@ -97,6 +97,19 @@ module.exports  = {
             return res.status(500).json(`Internal Server Error: ${error}`)
         }
 
+    },
+
+    async deleteSubject (req, res) {
+        try {
+            const { user_id, id } = req.params
+
+            const deletedSubject = await SubjectService.deleteSubject(id, user_id)
+
+            return res.status(200).json(deletedSubject)
+            
+        } catch (error) {
+            return res.status(500).json(`Internal Server Error: ${error}`)
+        }
     }
 
     
