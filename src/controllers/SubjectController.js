@@ -69,7 +69,7 @@ module.exports  = {
     async updateSubject(req, res) {
 
         try {
-            const { user_id } = req.params
+            const { user_id, id } = req.params
             const { name, description} = req.body
 
             const user = await UserService.getUser(user_id)
@@ -88,7 +88,7 @@ module.exports  = {
                 return res.status(400).json(`Bad Request: description is required`)
             }
 
-            const updatedSubject = await SubjectService.updateSubject(user_id,name,description)
+            const updatedSubject = await SubjectService.updateSubject(id, user_id,name,description)
 
             return res.status(200).json(updatedSubject)
 

@@ -1,5 +1,4 @@
 const Subject = require('../database/models/Subject')
-const { updateUser } = require('./UserService')
 
 
 const createSubject = async (user_id, name, description, difficulty) => {
@@ -21,18 +20,14 @@ const getSubjects = async (user_id) => {
 }
 
 
-const updateSubject = async (user_id, name, description) => {
-    
-    const data = {name, description}
+const updateSubject = async (id, user_id, name, description) => {
 
-    const updatedSubject = await Subject.update(data, {where:{user_id}})
+    const subject = await Subject.update({name, description}, {where: {id, user_id}})
 
-    return updatedSubject
-
-
+    return subject
 }
 
 
 
 
-module.exports = {createSubject, getSubjects}
+module.exports = {createSubject, getSubjects, updateSubject}
