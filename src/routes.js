@@ -2,6 +2,7 @@ const express = require('express')
 
 const UserController = require('./controllers/UserController')
 const SubjectController = require('./controllers/SubjectController')
+const ActivitiesController = require('./controllers/ActivitiesController')
 
 const routes = express.Router()
 
@@ -17,5 +18,8 @@ routes.post('/:user_id/subject', UserController.verifyJWT, SubjectController.sto
 routes.get('/:user_id/subjects', UserController.verifyJWT, SubjectController.getAll)
 routes.put('/:user_id/subject/:id', UserController.verifyJWT, SubjectController.updateSubject)
 routes.delete('/:user_id/subject/:id', UserController.verifyJWT, SubjectController.deleteSubject)
+
+
+routes.post('/:user_id/:subject_id/activities', UserController.verifyJWT,ActivitiesController.store)
 
 module.exports = routes
