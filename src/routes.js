@@ -21,5 +21,6 @@ routes.delete('/:user_id/subject/:id', UserController.verifyJWT, SubjectControll
 
 
 routes.post('/:user_id/:subject_id/activities', UserController.verifyJWT,ActivitiesController.store)
+routes.put('/:user_id/:subject_id/activities/:id', /*UserController.verifyJWT,*/ActivitiesController.updateActivity)
 
 module.exports = routes

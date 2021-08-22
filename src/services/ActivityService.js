@@ -11,5 +11,19 @@ const createActivity = async (subject_id, description, time) => {
 
 }
 
+const getByIndex = async (id) => {
+    const activity = await Activity.findByPk(id)
 
-module.exports = {createActivity}
+    return activity
+
+}
+
+const updateActivity = async (id, subject_id, description, time) => {
+
+    const activity = await Activity.update({description, time}, {where: {id, subject_id}})
+
+    return activity
+}
+
+
+module.exports = {createActivity, updateActivity, getByIndex}

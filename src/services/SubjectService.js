@@ -19,6 +19,14 @@ const getSubjects = async (user_id) => {
 
 }
 
+const getByIndex = async (id) => {
+
+    const subject = await Subject.findByPk(id)
+
+    return subject
+
+}
+
 
 const updateSubject = async (id, user_id, name, description) => {
 
@@ -37,4 +45,4 @@ const deleteSubject = async (id, user_id) => {
 
 
 
-module.exports = {createSubject, getSubjects, updateSubject, deleteSubject}
+module.exports = {createSubject, getSubjects, updateSubject, deleteSubject, getByIndex}
