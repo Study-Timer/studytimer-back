@@ -20,14 +20,19 @@
   "homepage": "https://github.com/Study-Timer/studytimer-back#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "eslint-config-airbnb": "^18.2.1",
     "express": "^4.17.1",
+    "husky": "^7.0.2",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.6.0",
     "sequelize": "^6.6.5",
     "tar": ">=6.1.2"
   },
   "devDependencies": {
-    "eslint": "^7.31.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "lint-staged": "^11.1.2",
     "nodemon": "^2.0.12",
     "sequelize-cli": "^6.2.0"
   }
