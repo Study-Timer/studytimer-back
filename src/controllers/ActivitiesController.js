@@ -7,10 +7,13 @@ module.exports = {
 
   async store(req, res) {
     try {
-      const { SubjectId } = req.params;
+      const { user_id } = req.params;
+      const { subject_id } = req.params;
       const { description, time } = req.body;
 
-      const subject = await SubjectService.getSubjects(SubjectId);
+      const subjectsOfUser = await SubjectService.getSubjects(user_id)
+      const subject = await SubjectService.getByIndex(subject_id)
+
 
       if (!subject) {
         return res.status(404).json('Subject not exists');
@@ -24,7 +27,7 @@ module.exports = {
         return res.status(400).json('Bad Request: time is required');
       }
 
-      const activity = await ActivityService.createActivity(SubjectId, description, time);
+      const activity = await ActivityService.createActivity(subject_id, description, time);
 
       return res.status(201).json(activity);
     } catch (error) {
@@ -34,10 +37,10 @@ module.exports = {
 
   async updateActivity(req, res) {
     try {
-      const { SubjectId, id } = req.params;
+      const { subject_id, id } = req.params;
       const { description, time } = req.body;
 
-      const subject = await SubjectService.getByIndex(SubjectId);
+      const subject = await SubjectService.getByIndex(subject_id);
 
       const activity = await ActivityService.getByIndex(id);
 
@@ -57,7 +60,7 @@ module.exports = {
         return res.status(400).json('Bad Request: time is required');
       }
 
-      const updatedActivity = await ActivityService.updateActivity(id, SubjectId, description, time);
+      const updatedActivity = await ActivityService.updateActivity(id, subject_id, description, time);
 
       return res.status(200).json(updatedActivity);
     } catch (error) {

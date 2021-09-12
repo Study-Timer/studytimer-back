@@ -7,10 +7,10 @@ module.exports = {
     try {
       // Nome, Descrição, DIFICULDADE ( que é um ENUM("EASY", "MEDIUM", "HARD") )
 
-      const { UserId } = req.params;
+      const { user_id } = req.params;
       const { name, description, difficulty } = req.body;
 
-      const user = await UserService.getUser(UserId);
+      const user = await UserService.getUser(user_id);
 
       if (!user) {
         return res.status(404).json('User not exists');
@@ -28,7 +28,7 @@ module.exports = {
         return res.status(400).json('Bad Request: password is required');
       }
 
-      const subject = await SubjectService.createSubject(UserId, name, description, difficulty);
+      const subject = await SubjectService.createSubject(user_id, name, description, difficulty);
 
       return res.status(201).json(subject);
     } catch (error) {
@@ -38,15 +38,15 @@ module.exports = {
 
   async getAll(req, res) {
     try {
-      const { UserId } = req.params;
+      const { user_id } = req.params;
 
-      const user = await UserService.getUser(UserId);
+      const user = await UserService.getUser(user_id);
 
       if (!user) {
         return res.status(404).json('User not exists');
       }
 
-      const subjects = await SubjectService.getSubjects(UserId);
+      const subjects = await SubjectService.getSubjects(user_id);
 
       return res.status(200).json(subjects);
     } catch (error) {
@@ -56,10 +56,10 @@ module.exports = {
 
   async updateSubject(req, res) {
     try {
-      const { UserId, id } = req.params;
+      const { user_id, id } = req.params;
       const { name, description } = req.body;
 
-      const user = await UserService.getUser(UserId);
+      const user = await UserService.getUser(user_id);
 
       if (!user) {
         return res.status(404).json('User not exists');
@@ -73,9 +73,9 @@ module.exports = {
         return res.status(400).json('Bad Request: description is required');
       }
 
-      const updatedSubject = await SubjectService.updateSubject(id, UserId, name, description);
+      const updatedSubject = await SubjectService.updateSubject(id, user_id, name, description);
 
-      return res.status(200).json(updatedSubject);
+      return res.status(200).json({subject_id: updatedSubject, msg: 'Matéria foi atualizada com sucesso.'});
     } catch (error) {
       return res.status(500).json(`Internal Server Error: ${error}`);
     }
@@ -83,11 +83,11 @@ module.exports = {
 
   async deleteSubject(req, res) {
     try {
-      const { UserId, id } = req.params;
+      const { user_id, id } = req.params;
 
-      const deletedSubject = await SubjectService.deleteSubject(id, UserId);
+      const deletedSubject = await SubjectService.deleteSubject(id, user_id);
 
-      return res.status(200).json(deletedSubject);
+      return res.status(200).json({subject_id: deletedSubject, msg: 'Matéria deletada.'});
     } catch (error) {
       return res.status(500).json(`Internal Server Error: ${error}`);
     }

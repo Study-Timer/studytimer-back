@@ -1,35 +1,35 @@
 const Subject = require('../database/models/Subject');
 
-const createSubject = async (UserId, name, description, difficulty) => {
+const createSubject = async (user_id, name, description, difficulty) => {
   const data = {
-    UserId, name, description, difficulty,
+    user_id, name, description, difficulty,
   };
 
-  const subject = await Subject.create(data);
+  const subject = await Subject.create(data, {raw: true});
 
   return subject;
 };
 
-const getSubjects = async (UserId) => {
-  const subjects = await Subject.findAll({ where: { UserId } });
+const getSubjects = async (user_id) => {
+  const subjects = await Subject.findAll({ where: { user_id }, raw: true});
 
   return subjects;
 };
 
 const getByIndex = async (id) => {
-  const subject = await Subject.findByPk(id);
+  const subject = await Subject.findByPk(id, {raw: true});
 
   return subject;
 };
 
-const updateSubject = async (id, UserId, name, description) => {
-  const subject = await Subject.update({ name, description }, { where: { id, UserId } });
+const updateSubject = async (id, user_id, name, description) => {
+  const subject = await Subject.update({ name, description }, { where: { id, user_id } }, { raw: true});
 
   return subject;
 };
 
-const deleteSubject = async (id, UserId) => {
-  const subject = await Subject.destroy({ where: { [Op.and]: [{ id }, { UserId }] } });
+const deleteSubject = async (id, user_id) => {
+  const subject = await Subject.destroy({ where: { [Op.and]: [{ id }, { user_id }] } });
 
   return subject;
 };

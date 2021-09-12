@@ -8,7 +8,8 @@ class Activities extends Model {
         super.init({
             description: DataTypes.STRING,
             time: DataTypes.INTEGER,
-        }, { sequelize: connection })
+        }, { sequelize: connection, freezeTableName: true,tableName: 'activities' }
+        )
     }
 
     static associate(models) {
