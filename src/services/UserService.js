@@ -3,7 +3,9 @@ const User = require('../database/models/User');
 const AuthService = require('./AuthService');
 
 const getUser = async (id) => {
-  const userById = await User.findByPk(id);
+  const userById = await User.findByPk(id, { raw: true });
+
+  delete userById.password;
 
   return userById;
 };

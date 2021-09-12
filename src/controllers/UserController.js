@@ -10,9 +10,9 @@ module.exports = {
 
   async indexOne(req, res) {
     try {
-      const { UserId } = req.params;
+      const { user_id } = req.params;
 
-      const user = await UserService.getUser(UserId);
+      const user = await UserService.getUser(user_id);
 
       return res.status(200).json(user);
     } catch (error) {
@@ -47,13 +47,13 @@ module.exports = {
   async updateUser(req, res) {
     try {
       const data = req.body;
-      const { UserId } = req.params;
+      const { user_id } = req.params;
 
       if (!data) {
         return res.status(400).json('Bad Request: data is required');
       }
 
-      const user = await UserService.updateUser(data, UserId);
+      const user = await UserService.updateUser(data, user_id);
 
       return res.status(200).json(user);
     } catch (error) {
