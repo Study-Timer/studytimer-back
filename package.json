@@ -26,7 +26,6 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.6.0",
     "sequelize": "^6.6.5",
-    "supertest": "^6.1.6",
     "tar": ">=6.1.9"
   },
   "devDependencies": {
@@ -35,6 +34,7 @@
     "eslint-plugin-import": "^2.24.2",
     "lint-staged": "^11.1.2",
     "nodemon": "^2.0.12",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^6.1.6"
   }
 }
