@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 const Activities = require('../database/models/Activities');
 
 const createActivity = async (subject_id, description, time) => {
   const data = { subject_id, description, time };
-  console.log('dados>', data)
+  console.log('dados>', data);
   const activity = await Activities.create(data);
 
   return activity;

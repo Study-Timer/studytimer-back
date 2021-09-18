@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const UserService = require('../services/UserService');
 const SubjectService = require('../services/SubjectService');
 
@@ -75,7 +76,7 @@ module.exports = {
 
       const updatedSubject = await SubjectService.updateSubject(id, user_id, name, description);
 
-      return res.status(200).json({subject_id: updatedSubject, msg: 'Matéria foi atualizada com sucesso.'});
+      return res.status(200).json({ subject_id: updatedSubject, msg: 'Matéria foi atualizada com sucesso.' });
     } catch (error) {
       return res.status(500).json(`Internal Server Error: ${error}`);
     }
@@ -87,7 +88,7 @@ module.exports = {
 
       const deletedSubject = await SubjectService.deleteSubject(id, user_id);
 
-      return res.status(200).json({subject_id: deletedSubject, msg: 'Matéria deletada.'});
+      return res.status(200).json({ subject_id: deletedSubject, msg: 'Matéria deletada.' });
     } catch (error) {
       return res.status(500).json(`Internal Server Error: ${error}`);
     }

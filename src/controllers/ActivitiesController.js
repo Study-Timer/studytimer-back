@@ -1,5 +1,4 @@
-// Operações referentes a atividades
-
+/* eslint-disable max-len */
 const SubjectService = require('../services/SubjectService');
 const ActivityService = require('../services/ActivityService');
 
@@ -11,9 +10,8 @@ module.exports = {
       const { subject_id } = req.params;
       const { description, time } = req.body;
 
-      const subjectsOfUser = await SubjectService.getSubjects(user_id)
-      const subject = await SubjectService.getByIndex(subject_id)
-
+      // const subjectsOfUser = await SubjectService.getSubjects(user_id);
+      const subject = await SubjectService.getByIndex(subject_id);
 
       if (!subject) {
         return res.status(404).json('Subject not exists');

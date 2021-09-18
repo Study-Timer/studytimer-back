@@ -27,7 +27,7 @@ const createUser = async (username, email, password) => {
 const updateUser = async (data, id) => {
   const user = await User.findByPk(id);
 
-  if (!user) throw new Error('Usuário com id ${user_id} não existe');
+  if (!user) throw new Error(`Usuário com id ${id} não existe`);
 
   const {
     newPassword,

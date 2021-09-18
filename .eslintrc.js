@@ -11,5 +11,10 @@ module.exports = {
     ecmaVersion: 12,
   },
   rules: {
+    camelcase: 'off',
+    treatUndefinedAsUnspecified: 0,
+    'no-unused-vars': 'off',
+    ignoreComments: 0,
+    'no-console': 1,
   },
 };

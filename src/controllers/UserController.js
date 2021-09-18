@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const jwt = require('jsonwebtoken');
 const UserService = require('../services/UserService');
 const AuthService = require('../services/AuthService');
@@ -96,7 +97,6 @@ module.exports = {
     }
   },
 
-  // verificar falha de segurança que apenas um unico cara logado consegue pegar informações de todos os outros
   async verifyJWT(req, res, next) {
     const token = req.headers['auth-token'] || req.headers.authorization;
 

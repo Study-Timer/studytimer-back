@@ -1,20 +1,18 @@
-const { Model, DataTypes } = require('sequelize')
+const { Model, DataTypes } = require('sequelize');
 
 class User extends Model {
+  static init(connection) {
+    super.init({
+      username: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
 
-    static init(connection) {
-        super.init({
-            username: DataTypes.STRING,
-            email: DataTypes.STRING,
-            password: DataTypes.STRING
+    }, { sequelize: connection });
+  }
 
-        }, { sequelize: connection })
-
-    }
-
-    static associate(models) {
-        this.hasMany(models.Subject, { foreignKey: 'user_id', as: 'subjects' })
-    }
+  static associate(models) {
+    this.hasMany(models.Subject, { foreignKey: 'user_id', as: 'subjects' });
+  }
 }
 
-module.exports = User
+module.exports = User;
