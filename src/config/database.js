@@ -1,11 +1,27 @@
 // const { DB_USERNAME, DB_PASSWORD, DB_NAME } =  process.env
 
+// module.exports = {
+//   dialect: 'postgres',
+//   host: 'localhost',
+//   username: 'studytimer',
+//   password: 'studytimer',
+//   database: 'studytimer-db',
+//   define: {
+//     timestamps: true,
+//     underscored: true,
+
+//   },
+// };
+const {
+  DB_PASS, DB_USER, DB, DB_HOST,
+} = process.env;
+
 module.exports = {
   dialect: 'postgres',
-  host: 'localhost',
-  username: 'studytimer',
-  password: 'studytimer',
-  database: 'studytimer-db',
+  host: DB_HOST,
+  username: DB_USER,
+  password: DB_PASS,
+  database: DB,
   define: {
     timestamps: true,
     underscored: true,
