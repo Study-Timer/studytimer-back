@@ -17,17 +17,17 @@ const {
 } = process.env;
 
 module.exports = {
-  dialect: 'postgres',
-  host: DB_HOST,
-  username: DB_USER,
-  password: DB_PASS,
-  database: DB,
-  define: {
-    timestamps: true,
-    underscored: true,
-
-  },
   development: {
     use_env_variable: DATABASE_URL,
+    dialect: 'postgres',
+    host: DB_HOST,
+    username: DB_USER,
+    password: `${DB_PASS}`,
+    database: DB,
+    define: {
+      timestamps: true,
+      underscored: true,
+
+    },
   },
 };
