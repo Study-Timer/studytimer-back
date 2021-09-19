@@ -19,11 +19,11 @@ const {
 module.exports = {
   development: {
     use_env_variable: 'DATABASE_URL',
-    dialect: 'postgres',
     host: DB_HOST,
     username: DB_USER,
     password: DB_PASS,
     database: DB,
+    dialect: 'postgres',
     define: {
       timestamps: true,
       underscored: true,
