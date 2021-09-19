@@ -4,7 +4,7 @@
   "description": "Backend do StudyTImer",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js && npx sequelize-cli db:migrate",
+    "start": "node src/server.js",
     "start:dev": "nodemon src/server.js",
     "test": "jest --coverage",
     "lint": "eslint --fix  --ext .js .",
