@@ -13,7 +13,7 @@
 //   },
 // };
 const {
-  DB_PASS, DB_USER, DB, DB_HOST,
+  DB_PASS, DB_USER, DB, DB_HOST, DATABASE_URL,
 } = process.env;
 
 module.exports = {
@@ -26,5 +26,8 @@ module.exports = {
     timestamps: true,
     underscored: true,
 
+  },
+  development: {
+    use_env_variable: DATABASE_URL,
   },
 };
