@@ -4,7 +4,7 @@
   "description": "Backend do StudyTImer",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "start": "nodemon src/server.js",
     "test": "jest --coverage",
     "lint": "eslint --fix  --ext .js .",
     "prepare": "husky install",
