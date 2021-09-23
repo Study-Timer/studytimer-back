@@ -28,8 +28,5 @@ module.exports = {
       timestamps: true,
       underscored: true,
     },
-    migrations: [
-      'src/database/migrations/**/*.js',
-    ],
   },
 };
