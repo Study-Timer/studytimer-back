@@ -29,6 +29,7 @@
   "homepage": "https://github.com/Study-Timer/studytimer-back#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
     "eslint-config-airbnb": "^18.2.1",
     "express": "^4.17.1",
     "husky": "^7.0.2",
