@@ -16,9 +16,9 @@ routes.get('/users/:user_id', UserController.verifyJWT, UserController.indexOne)
 routes.post('/:user_id/subjects', UserController.verifyJWT, SubjectController.store);
 routes.get('/:user_id/subjects', UserController.verifyJWT, SubjectController.getAll);
 routes.put('/:user_id/subjects/:id', UserController.verifyJWT, SubjectController.updateSubject);
-routes.delete('/:user_id/subjects/:id', UserController.verifyJWT, SubjectController.deleteSubject); // Não tá feito.
+routes.delete('/:user_id/subjects/:id', UserController.verifyJWT, SubjectController.deleteSubject); 
 
-routes.post('/:user_id/subjects/:subject_id/activities', UserController.verifyJWT, ActivitiesController.store); // n ta pegando.
-routes.put('/:user_id/subjects/:subject_id/activities/:id', UserController.verifyJWT, ActivitiesController.updateActivity); // n ta pegando.
+routes.post('/:user_id/subjects/:subject_id/activities', UserController.verifyJWT, ActivitiesController.store); 
+routes.put('/:user_id/subjects/:subject_id/activities/:id', UserController.verifyJWT, ActivitiesController.updateActivity); 
 
 module.exports = routes;
