@@ -32,6 +32,12 @@ O banco de dados está em um container no docker, mas sem tabelas, portanto rode
   npx sequelize-cli db:migrate
 ```
 
+## Em seguida, rode: 
+
+
+```bash
+  npm run start:dev
+```
 
 
 
