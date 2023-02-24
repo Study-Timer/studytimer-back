@@ -36,7 +36,7 @@
     "jsonwebtoken": "^8.5.1",
     "lint-staged": "^11.1.2",
     "pg": "^4.5.7",
-    "sequelize": "^6.6.5",
+    "sequelize": "^6.29.0",
     "tar": ">=6.1.9"
   },
   "devDependencies": {
